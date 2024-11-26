@@ -1,0 +1,28 @@
+{% extends  'starter-page.html' %}
+{% load static %}
+{% block body %}
+
+
+     <!----Show image--->
+      <h2 class="text-center">Other Doctors</h2>
+
+       <div class="container">
+          <div style="display: flex;
+          justify-content:space-between;
+          flex-wrap: wrap">
+               {% for image in images %}
+              <div class="col mb-2">
+                  <img src="{{ image.image.url }}" alt="Uploaded Image" style="width: 300px;height:300px"> <br>
+                  <p><strong>Name :</strong>{{ image.title }}</p>
+                  <p><strong>Price :</strong>{{ image.price }}</p>
+
+                  <a href="{% url 'pay' %}" class="btn btn-outline-success">PAY</a><br>
+              </div>
+           {% endfor %}
+          </div>
+
+       </div>
+
+
+
+{% endblock %}
